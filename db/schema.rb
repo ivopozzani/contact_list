@@ -12,7 +12,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_220_131_163_642) do
+ActiveRecord::Schema.define(version: 20_220_201_122_723) do
+  create_table 'contacts', force: :cascade do |t|
+    t.string 'name'
+    t.date 'birth_date'
+    t.integer 'user_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['user_id'], name: 'index_contacts_on_user_id'
+  end
+
   create_table 'users', force: :cascade do |t|
     t.string 'name'
     t.integer 'age'
@@ -20,4 +29,6 @@ ActiveRecord::Schema.define(version: 20_220_131_163_642) do
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
   end
+
+  add_foreign_key 'contacts', 'users'
 end

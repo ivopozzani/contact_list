@@ -3,14 +3,15 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  fixtures :all
-
-  it 'is valid user with valid atributes' do
-    expect(users(:one)).to be_valid
-    expect(users(:two)).to be_valid
+  it 'creates a valid user' do
+    user = build(:user)
+    expect(user.new_record?).to be true
   end
 
-  it 'criates two users' do
-    expect(users.count).to eq 2
+  it 'creates many users' do
+     %w[user1 user2 usert3 usert4].each do |name|
+      users = create(:user, name:)
+    end
+    expect(User.all.count).to eq(4)
   end
 end
