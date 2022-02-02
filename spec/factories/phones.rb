@@ -2,9 +2,9 @@
 
 FactoryBot.define do
   factory :phone do
-    number { 'MyString' }
-    kind { 'MyString' }
+    number { '(11) 94323-3234' }
+    kind { 'casa' }
     main { false }
-    contact { nil }
+    contact
   end
 end
