@@ -9,7 +9,7 @@ RSpec.describe User, type: :model do
   end
 
   it 'creates many users' do
-     %w[user1 user2 usert3 usert4].each do |name|
+    %w[user1 user2 usert3 usert4].each do |name|
       users = create(:user, name:)
     end
     expect(User.all.count).to eq(4)
