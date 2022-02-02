@@ -4,12 +4,12 @@ require 'rails_helper'
 
 RSpec.describe Contact, type: :model do
   it 'creates a valid contact' do
-    contact = build(:contact, name: 'contact', birth_date: '01/01/2001')
+    contact = build(:contact)
     expect(contact.new_record?).to be true
   end
 
   it 'contact belongs to a user' do
-    contact = build(:contact, name: 'contact2', birth_date: '01/01/2001')
+    contact = build(:contact)
     expect(contact.user.new_record?).to be true
   end
 
