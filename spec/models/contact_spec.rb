@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Contact, type: :model do
-  context 'When form fiels are invalid' do
+  context 'When not valid' do
     it 'does not create a contact with blank name' do
       expect do
         create(:contact, name: nil)
@@ -19,7 +19,7 @@ RSpec.describe Contact, type: :model do
     end
   end
 
-  context 'When form fields are valid' do
+  context 'When valid' do
     it 'creates a valid contact' do
       expect(create(:contact)).to be_valid
     end

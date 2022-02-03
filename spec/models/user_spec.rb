@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  context 'When form fields are invalid' do
+  context 'When not valid' do
     it 'does not create a user with blank name' do
       expect do
         create(:user, name: nil)
@@ -31,7 +31,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  context 'When form fiels are valid' do
+  context 'When valid' do
     it 'creates a valid user' do
       expect(create(:user)).to be_valid
     end
