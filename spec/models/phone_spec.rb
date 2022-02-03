@@ -14,8 +14,8 @@ RSpec.describe Phone, type: :model do
   end
 
   it 'creates many phone numbers for single contact' do
-     contact = create(:contact, id: 10)
-     %w[1234561 12345612 12345613 12345614 12345615].each do |number|
+    contact = create(:contact, id: 10)
+    %w[1234561 12345612 12345613 12345614 12345615].each do |number|
       p_numbers = create(:phone, number:, contact:)
     end
     expect(Phone.where(contact_id: 10).count).to eq(5)
