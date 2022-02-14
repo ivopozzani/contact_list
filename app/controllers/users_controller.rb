@@ -6,8 +6,8 @@ class UsersController < ApplicationController
   end
 
   def show
-  @user = User.find(params[:id])
-  @phones = Phone.all
+    @user = User.find(params[:id])
+    @phones = Phone.all
   end
 
   def new; end
