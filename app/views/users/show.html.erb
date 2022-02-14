@@ -5,7 +5,7 @@
 
 <div class="contanier--big">
     <% @user.contacts.each do |contact| %>
-        <div class="contact__card">
+        <div class="card contact">
             <p>Name: <%= contact.name %></p>
             <p>BirthDate: <%= contact.birth_date %></p>
             
@@ -34,7 +34,7 @@
                         </tr>
                         <% end %>
                     </table>
-                    
+
                 </div>
             <% end %>
 

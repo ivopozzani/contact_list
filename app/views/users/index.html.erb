@@ -4,7 +4,7 @@
 
 <div class="container--big">
     <% @users.each do |user| %>
-        <div class="user__card">
+        <div class="card user">
             <p>Name: <a href="/users/<%= user.id %>"><%= user.name %></p></a>
             <p>Age: <%= user.age %></p>
             <p>Number os contacts: <%= user.contacts.count %></p> 
