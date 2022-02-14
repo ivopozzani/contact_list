@@ -10,38 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_04_164501) do
-
-  create_table "contacts", force: :cascade do |t|
-    t.string "name", null: false
-    t.date "birth_date"
-    t.integer "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["name", "user_id"], name: "index_contacts_on_name_and_user_id", unique: true
-    t.index ["user_id"], name: "index_contacts_on_user_id"
+ActiveRecord::Schema.define(version: 20_220_204_164_501) do
+  create_table 'contacts', force: :cascade do |t|
+    t.string 'name', null: false
+    t.date 'birth_date'
+    t.integer 'user_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index %w[name user_id], name: 'index_contacts_on_name_and_user_id', unique: true
+    t.index ['user_id'], name: 'index_contacts_on_user_id'
   end
 
-  create_table "phones", force: :cascade do |t|
-    t.string "number", null: false
-    t.string "kind", null: false
-    t.boolean "main"
-    t.integer "contact_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["contact_id"], name: "index_phones_on_contact_id"
-    t.index ["number", "contact_id"], name: "index_phones_on_number_and_contact_id", unique: true
+  create_table 'phones', force: :cascade do |t|
+    t.string 'number', null: false
+    t.string 'kind', null: false
+    t.boolean 'main'
+    t.integer 'contact_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['contact_id'], name: 'index_phones_on_contact_id'
+    t.index %w[number contact_id], name: 'index_phones_on_number_and_contact_id', unique: true
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "age"
-    t.text "biography"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_users_on_name", unique: true
+  create_table 'users', force: :cascade do |t|
+    t.string 'name', null: false
+    t.integer 'age'
+    t.text 'biography'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['name'], name: 'index_users_on_name', unique: true
   end
 
-  add_foreign_key "contacts", "users"
-  add_foreign_key "phones", "contacts"
+  add_foreign_key 'contacts', 'users'
+  add_foreign_key 'phones', 'contacts'
 end

@@ -18,11 +18,12 @@ RSpec.describe Phone, type: :model do
 
     it 'does not create two phones as main' do
       c1 = create(:contact)
-      expect do
-        ['(11) 9000-5000', '(11) 99999-9999'].each do |number|
-          create(:phone, number:, main: true, contact_id: 1)
-        end
-      end.to raise_error(ActiveRecord::RecordInvalid, 'Validation failed: Main has already been taken')
+      p1 = Phone.create(number: '(11) 9000-5000', kind: 'work', main: true, contact_id: 1)
+      p2 = Phone.create(number: '(11) 99999-9999', kind: 'work', main: true, contact_id: 1)
+      first = Phone.first
+      last = Phone.last
+      expect(first.main).to eq(false)
+      expect(last.main).to eq(true)
     end
   end
 
