@@ -11,8 +11,6 @@ RSpec.describe 'Users', type: :request do
       expect(response).to have_http_status(:success)
     end
 
-    before { user }
-
     it 'assigns @users' do
       get '/users'
       expect(assigns(:users).first).to eq(user)
