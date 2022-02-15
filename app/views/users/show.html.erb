@@ -2,8 +2,10 @@
 <p>Here you will find further information about User's contacts</p>
 
 <h2>User: <%= @user.name %></h2>
+<p>Age: <%= @user.age %></p>
+<p>Biography: <%= @user.biography %></p>
 
-<div class="contanier--big">
+<div class="container--big">
   <% @user.contacts.each do |contact| %>
   <div class="card contact">
     <p>Name: <%= contact.name %></p>
