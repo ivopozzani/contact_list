@@ -1,43 +1,42 @@
 <h1>Detailed Information</h1>
 <p>Here you will find further information about User's contacts</p>
 
-<h2>User: <%= @user.name %> </h2>
+<h2>User: <%= @user.name %></h2>
 
 <div class="contanier--big">
-    <% @user.contacts.each do |contact| %>
-        <div class="card contact">
-            <p>Name: <%= contact.name %></p>
-            <p>BirthDate: <%= contact.birth_date %></p>
-            
-            <% if @phones.where(contact_id: contact.id).empty? %>                
-                <p>No phones yet</p>            
-            <% else %>
-                <div class="contact__phones">
-                    
-                    <table>
-                        <tr>
-                            <th>Phone</th>
-                            <th>Number</th>
-                            <th>Type</th>
-                            <th>Main</th>
-                        </tr>
-                        <% @phones.where(contact_id: contact.id).each_with_index do |phone, index| %>
-                        <tr>
-                            <td><%= index + 1 %></td>
-                            <td><%= phone.number %></td>
-                            <td><%= phone.kind %></td>
-                            <% if phone.main == true %>
-                                <td>Yes</td>
-                            <% else %>
-                                <td>No</td>
-                            <% end %>
-                        </tr>
-                        <% end %>
-                    </table>
+  <% @user.contacts.each do |contact| %>
+  <div class="card contact">
+    <p>Name: <%= contact.name %></p>
+    <p>BirthDate: <%= contact.birth_date %></p>
 
-                </div>
-            <% end %>
+    <% if @phones.where(contact_id: contact.id).empty? %>
+    <p>No phones yet</p>
+    <% else %>
+    <div class="contact__phones">
+      <table>
+        <tr>
+          <th>Phone</th>
+          <th>Number</th>
+          <th>Type</th>
+          <th>Main</th>
+        </tr>
+        <% @phones.where(contact_id: contact.id).each_with_index do |phone,
+        index| %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><%= phone.number %></td>
+          <td><%= phone.kind %></td>
 
-        </div>
+          <% if phone.main == true %>
+          <td>Yes</td>
+          <% else %>
+          <td>No</td>
+          <% end %>
+        </tr>
+        <% end %>
+      </table>
+    </div>
     <% end %>
+  </div>
+  <% end %>
 </div>
