@@ -1,0 +1,14 @@
+<h1>Users List</h1>
+
+<p>Here you'll find all users in db</p>
+
+<div class="container--big">
+    <% @users.each do |user| %>
+        <div class="user__card">
+            <p>Nome: <%= user.name %></p>
+            <p>Idade: <%= user.age %></p>
+            <p>Total de contatos: <%= user.contacts.count %></p> 
+            <p>Total de telefones: <%= user.phones.count %></p>                
+        </div>
+    <% end %>
+</div>
