@@ -23,6 +23,16 @@ RSpec.describe 'Users', type: :request do
       get "/users/#{user.id}"
       expect(response).to have_http_status(:success)
     end
+
+    it 'assigns @user' do
+      get "/users/#{user.id}"
+      expect(assigns(:user)).to eq(user)
+    end
+
+    it 'assigns @phones' do
+      get "/users/#{user.id}"
+      expect(assigns(:phones)).to eq(user.phones)
+    end
   end
 
   describe 'GET /new' do

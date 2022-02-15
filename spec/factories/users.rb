@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :user do
-    name { 'user' }
+    name { 'foo' }
     age  { 32 }
     biography { 'fdofksodfksdofksdofk' }
   end
