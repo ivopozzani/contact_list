@@ -12,6 +12,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'assigns @users' do
+      user
       get '/users'
       expect(assigns(:users).first).to eq(user)
     end
