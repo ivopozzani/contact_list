@@ -3,8 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
-  let(:user) { create(:user) }
-
   describe 'GET /index' do
     it 'returns http success' do
       get '/users'
@@ -12,7 +10,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'assigns @users' do
-      user
+      user = create(:user)
       get '/users'
       expect(assigns(:users).first).to eq(user)
     end
@@ -20,18 +18,15 @@ RSpec.describe 'Users', type: :request do
 
   describe 'GET /show' do
     it 'returns http success' do
+      user = create(:user)
       get "/users/#{user.id}"
       expect(response).to have_http_status(:success)
     end
 
     it 'assigns @user' do
+      user = create(:user)
       get "/users/#{user.id}"
       expect(assigns(:user)).to eq(user)
-    end
-
-    it 'assigns @phones' do
-      get "/users/#{user.id}"
-      expect(assigns(:phones)).to eq(user.phones)
     end
   end
 
