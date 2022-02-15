@@ -12,7 +12,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'assigns @users' do
-      user
+      user = create(:user)
       get '/users'
       expect(assigns(:users).first).to eq(user)
     end
