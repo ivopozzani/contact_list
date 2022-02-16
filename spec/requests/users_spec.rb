@@ -31,18 +31,16 @@ RSpec.describe 'Users', type: :request do
   end
 
   describe 'GET /new' do
-    pending 'not implemented yet'
     it 'returns http success' do
       get '/users/new'
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe 'GET /create' do
-    pending 'not implemented yet'
-    it 'returns http success' do
-      get '/users/create'
-      expect(response).to have_http_status(:success)
+  describe 'post /create' do
+    it 'returns http found' do
+      post '/users', params: {user: { name:'lorem', age:32, biography:'lorem lorem lorem' }}
+      expect(response).to have_http_status(:found)
     end
   end
 
