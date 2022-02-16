@@ -37,10 +37,15 @@ RSpec.describe 'Users', type: :request do
     end
   end
 
-  describe 'post /create' do
+  describe 'post /users' do
+    subject { post '/users', params: {user: { name:'lorem', age:32, biography:'lorem lorem lorem' }} }
+    
     it 'returns http found' do
-      post '/users', params: {user: { name:'lorem', age:32, biography:'lorem lorem lorem' }}
-      expect(response).to have_http_status(:found)
+      expect(subject).to eq(302)
+    end
+
+    it 'redirects_to /users/:id' do
+      expect(subject).to redirect_to("/users/#{assigns(:user).id}")
     end
   end
 
