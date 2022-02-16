@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   get 'users/update'
   get 'users/destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  get 'users/:id' => 'users#show', as: 'user'
+  get 'users/:id' => 'users#show', as: 'users_id'
 end

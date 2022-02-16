@@ -19,13 +19,13 @@ RSpec.describe 'Users', type: :request do
   describe 'GET /show' do
     it 'returns http success' do
       user = create(:user)
-      get "/users/#{user.id}"
+      get users_id_path(user)
       expect(response).to have_http_status(:success)
     end
 
     it 'assigns @user' do
       user = create(:user)
-      get "/users/#{user.id}"
+      get users_id_path(user)
       expect(assigns(:user)).to eq(user)
     end
   end

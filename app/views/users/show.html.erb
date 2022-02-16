@@ -22,9 +22,9 @@
               <th>Type</th>
               <th>Main</th>
             </tr>
-            <% contact.phones.each_with_index do |phone, index| %>
+            <% contact.phones.each.with_index(1) do |phone, index| %>
               <tr>
-                <td><%= index + 1 %></td>
+                <td><%= index %></td>
                 <td><%= phone.number %></td>
                 <td><%= phone.kind %></td>
                 <td><%= phone.main? ? "Yes" : "No" %></td>
