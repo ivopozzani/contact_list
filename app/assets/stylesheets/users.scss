@@ -76,3 +76,20 @@ td {
   line-height: 20px;
   border-bottom: 1px solid #ddd;
 }
+
+.form {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.form > form input {
+  width: 100%;
+  border-radius: 6.3745px;
+}
+
+.form > form textarea {
+  height: 150px;
+  border-radius: 6.3745px;
+  width: 100%;
+}
