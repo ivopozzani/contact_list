@@ -2,6 +2,8 @@
 
 <p>Here you'll find all users in db</p>
 
+<p>To add new user: <%= link_to "New User", users_new_path %></p>
+
 <div class="container--big">
     <% @users.each do |user| %>
         <div class="card user">
