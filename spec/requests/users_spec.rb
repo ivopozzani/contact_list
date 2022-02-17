@@ -63,19 +63,19 @@ RSpec.describe 'Users', type: :request do
     end
   end
 
-  describe 'GET /edit' do
-    pending 'not implemented yet'
+  describe 'GET /users/:id/edit' do
     it 'returns http success' do
-      get '/users/edit'
+      user = create(:user)
+      get users_id_edit_path(user)
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe 'GET /update' do
-    pending 'not implemented yet'
-    it 'returns http success' do
-      get '/users/update'
-      expect(response).to have_http_status(:success)
+  describe 'PATCH /users/:id' do
+    it 'responds to html by default' do
+      user = create(:user)
+      patch user_path(user), params: { user: { name: 'lorem' } }
+      expect(response.content_type).to eq 'text/html; charset=utf-8'
     end
   end
 
