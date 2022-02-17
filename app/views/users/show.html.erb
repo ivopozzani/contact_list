@@ -1,2 +1,38 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>Detailed Information</h1>
+<p>Here you will find further information about User's contacts</p>
+
+<h2>User: <%= @user.name %></h2>
+<p>Age: <%= @user.age %></p>
+<p>Biography: <%= @user.biography %></p>
+
+<div class="container--big">
+  <% @user.contacts.each do |contact| %>
+    <div class="card contact">
+      <p>Name: <%= contact.name %></p>
+      <p>BirthDate: <%= contact.birth_date %></p>
+
+      <% if contact.phones.empty? %>
+        <p>No phones yet</p>
+      <% else %>
+        <div class="contact__phones">
+          <table>
+            <tr>
+              <th>Phone</th>
+              <th>Number</th>
+              <th>Type</th>
+              <th>Main</th>
+            </tr>
+            <% contact.phones.each.with_index(1) do |phone, index| %>
+              <tr>
+                <td><%= index %></td>
+                <td><%= phone.number %></td>
+                <td><%= phone.kind %></td>
+                <td><%= phone.main? ? "Yes" : "No" %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

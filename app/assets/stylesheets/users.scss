@@ -1,12 +1,26 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+:root {
+  --color-primary: #bf9075;
+  --color-secundary: #d9b391;
+
+  --padding-width: 5px;
+}
+
+body {
+  background-color: var(--color-primary);
+}
+
 .container--big {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
 }
-.user__card {
+
+.card {
+  background-color: var(--color-secundary);
   display: flex;
   flex-flow: column;
   justify-content: space-around;
@@ -14,5 +28,51 @@
   border-style: solid;
   border-color: black;
   border-width: 3px;
-  padding: 5px;
+  padding: var(--padding-width);
+  box-shadow: 0px 3.18725px 3.18725px rgba(0, 0, 0, 0.25);
+  border-radius: 6.3745px;
+  margin: 0 auto 1.25rem auto;
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+.user {
+  height: 12rem;
+  width: 14rem;
+}
+
+.contact {
+  height: 12rem;
+  width: 19rem;
+}
+
+.contact p {
+  margin: 0;
+}
+
+.contact__phones {
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  padding: var(--padding-width);
+  overflow: scroll;
+  height: 6rem;
+  width: 100%;
+}
+
+.contact__phones > table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.contact__phones > table th,
+td {
+  font-size: 12px;
+  text-align: center;
+  align-items: center;
+  line-height: 20px;
+  border-bottom: 1px solid #ddd;
 }
