@@ -77,6 +77,13 @@ RSpec.describe 'Users', type: :request do
       patch user_path(user), params: { user: { name: 'lorem' } }
       expect(response.content_type).to eq 'text/html; charset=utf-8'
     end
+
+    it "changes user's attributes" do
+      user = create(:user)
+      patch user_path(user), params: { user: { name: 'lorem' } }
+      user.reload
+      expect(user.name).to eq('lorem')
+    end
   end
 
   describe 'GET /destroy' do
