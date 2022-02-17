@@ -5,13 +5,13 @@ require 'rails_helper'
 RSpec.describe 'Users', type: :request do
   describe 'GET /index' do
     it 'returns http success' do
-      get '/users'
+      get users_path
       expect(response).to have_http_status(:success)
     end
 
     it 'assigns @users' do
       user = create(:user)
-      get '/users'
+      get users_path
       expect(assigns(:users).first).to eq(user)
     end
   end
@@ -19,26 +19,26 @@ RSpec.describe 'Users', type: :request do
   describe 'GET /show' do
     it 'returns http success' do
       user = create(:user)
-      get users_id_path(user)
+      get user_path(user)
       expect(response).to have_http_status(:success)
     end
 
     it 'assigns @user' do
       user = create(:user)
-      get users_id_path(user)
+      get user_path(user)
       expect(assigns(:user)).to eq(user)
     end
   end
 
   describe 'GET /new' do
     it 'returns http success' do
-      get '/users/new'
+      get users_new_path
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe 'post /users' do
-    subject { post '/users', params: {user: { name:'lorem', age:32, biography:'lorem lorem lorem' }} }
+  describe 'POST /users' do
+    subject { post users_path, params: {user: { name:'lorem', age:32, biography:'lorem lorem lorem' }} }
     
     it 'returns http found' do
       expect(subject).to eq(302)
