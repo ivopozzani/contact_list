@@ -30,7 +30,7 @@ body {
   border-width: 3px;
   padding: var(--padding-width);
   box-shadow: 0px 3.18725px 3.18725px rgba(0, 0, 0, 0.25);
-  border-radius: 6.3745px;
+  border-radius: 6px;
   margin: 0 auto 1.25rem auto;
   transition: 0.2s;
 }
@@ -85,11 +85,11 @@ td {
 
 .form > form input {
   width: 100%;
-  border-radius: 6.3745px;
+  border-radius: 6px;
 }
 
 .form > form textarea {
   height: 150px;
-  border-radius: 6.3745px;
+  border-radius: 6px;
   width: 100%;
 }
