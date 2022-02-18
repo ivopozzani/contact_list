@@ -37,7 +37,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+    User.destroy(params[:id])
+    redirect_to users_path, status: :see_other
+  end
 
   private
 

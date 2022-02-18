@@ -32,7 +32,7 @@ RSpec.describe 'Users', type: :request do
 
   describe 'GET /new' do
     it 'returns http success' do
-      get users_new_path
+      get new_user_path
       expect(response).to have_http_status(:success)
     end
   end
@@ -66,7 +66,7 @@ RSpec.describe 'Users', type: :request do
   describe 'GET /users/:id/edit' do
     it 'returns http success' do
       user = create(:user)
-      get users_id_edit_path(user)
+      get edit_user_path(user)
       expect(response).to have_http_status(:success)
     end
   end
@@ -86,11 +86,16 @@ RSpec.describe 'Users', type: :request do
     end
   end
 
-  describe 'GET /destroy' do
-    pending 'not implemented yet'
-    it 'returns http success' do
-      get '/users/destroy'
-      expect(response).to have_http_status(:success)
+  describe 'DELETE /users/:id' do    
+    it 'returns http status "see_other"' do
+      user = create(:user)
+      delete user_path(user)
+      expect(response).to have_http_status(:see_other)
+    end
+
+    it 'deletes user' do
+      user = create(:user)
+      expect { delete user_path(user) }.to change { User.count }.by(-1)
     end
   end
 end

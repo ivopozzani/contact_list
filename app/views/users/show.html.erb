@@ -38,4 +38,7 @@
   <% end %>
 </div>
 
-<%= link_to "Edit User", users_id_edit_path(@user) %>
+<%= link_to "Edit User", edit_user_path(@user) %>
+<%= link_to "Delete User", @user, data: {
+   method: :delete, 
+   confirm: "This action will delete #{@user.name}. Do you confirm this action? " } %>
