@@ -32,7 +32,7 @@ RSpec.describe 'Users', type: :request do
 
   describe 'GET /new' do
     it 'returns http success' do
-      get users_new_path
+      get new_user_path
       expect(response).to have_http_status(:success)
     end
   end
@@ -66,7 +66,7 @@ RSpec.describe 'Users', type: :request do
   describe 'GET /users/:id/edit' do
     it 'returns http success' do
       user = create(:user)
-      get users_id_edit_path(user)
+      get edit_user_path(user)
       expect(response).to have_http_status(:success)
     end
   end

@@ -2,7 +2,7 @@
 
 <p>Here you'll find all users in db</p>
 
-<p>To add new user: <%= link_to "New User", users_new_path %></p>
+<p>To add new user: <%= link_to "New User", new_user_path %></p>
 
 <div class="container--big">
     <% @users.each do |user| %>
@@ -12,7 +12,7 @@
             <p>Number os contacts: <%= user.contacts.count %></p> 
             <p>Total phone numbers: <%= user.phones.count %></p>
             <div>
-                <%= link_to "Edit User", users_id_edit_path(user) %>
+                <%= link_to "Edit User", edit_user_path(user) %>
                 <%= link_to "Delete User", user, data: {
                      method: :delete,
                      confirm: "This action will delete #{user.name}. Do you confirm this action? " } %>
