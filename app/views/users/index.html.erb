@@ -2,10 +2,12 @@
 
 <p>Here you'll find all users in db</p>
 
+<p>To add new user: <%= link_to "New User", users_new_path %></p>
+
 <div class="container--big">
     <% @users.each do |user| %>
         <div class="card user">
-            <p>Name: <a href="/users/<%= user.id %>"><%= user.name %></p></a>
+            <p>Name: <%= link_to user.name, user %></p>
             <p>Age: <%= user.age %></p>
             <p>Number os contacts: <%= user.contacts.count %></p> 
             <p>Total phone numbers: <%= user.phones.count %></p>                
