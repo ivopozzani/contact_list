@@ -86,7 +86,7 @@ RSpec.describe 'Users', type: :request do
     end
   end
 
-  describe 'DELETE /users/:id' do    
+  describe 'DELETE /users/:id' do
     it 'returns http status "see_other"' do
       user = create(:user)
       delete user_path(user)

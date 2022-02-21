@@ -43,6 +43,15 @@ RSpec.describe Contact, type: :model do
         contacts = create(:contact, name:, user:)
       end
       expect(Contact.where(user_id: 10).count).to eq(5)
+    end    
+  end
+
+  describe '#main_phone' do
+    it 'returns its main phone' do
+      contact = create(:contact)
+      phone1 = create(:phone, contact_id: contact.id)
+      phone2 = create(:phone, number: '9999-3333', main: false, contact_id: contact.id)
+      expect(contact.main_phone).to eq(phone1)
     end
   end
 end
