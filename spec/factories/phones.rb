@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :phone do
     number { '(11) 90000-3333' }
     kind { 'home' }
-    main { false }
+    main { true }
     contact
   end
 end

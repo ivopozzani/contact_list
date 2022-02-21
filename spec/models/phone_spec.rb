@@ -25,6 +25,12 @@ RSpec.describe Phone, type: :model do
       expect(first.main).to eq(false)
       expect(last.main).to eq(true)
     end
+
+    it 'does not create first phone not main' do
+      expect do
+        create(:phone, main: false)
+      end.to raise_error(ActiveRecord::RecordInvalid, 'Validation failed: Main must have at least one main phone')
+    end
   end
 
   context 'When valid' do
