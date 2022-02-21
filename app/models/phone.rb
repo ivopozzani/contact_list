@@ -7,7 +7,7 @@ class Phone < ApplicationRecord
   validates :main, inclusion: { in: [true, false] }
   validates_each :main do |record, attr, value|
     if !value && record.contact.main_phone.nil?
-      record.errors.add(attr, 'must have at least one main phone')
+      record.errors.add(attr, 'must have one main phone')
     end
   end
 
